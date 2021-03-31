@@ -50,18 +50,17 @@ $(function(){
     $(this).stop().fadeTo(500, 1);
   })
 
-
-  // You can also write this as shorthand like so:
+  //Mini Challenge, rewrite the code for the blue box using the hover function. (I went and just a made a new pink box to apply this to)
 
     let pinkBox = $(".pink-box");
 
     pinkBox.hover(
       function(){
-        $(this).stop().fadeTo(500, .5);
+        $(this).stop().fadeTo(100, .7);
       }, 
       
       function(){
-      $(this).stop().fadeTo(500, 1);
+      $(this).stop().fadeTo(100, 1);
       }
     );
 
