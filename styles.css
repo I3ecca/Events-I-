@@ -38,6 +38,15 @@
   color: #ffffff;
   background-color: #000088; }
 
+.pink-box {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #e65fda; }
+
 .large {
   font-size: 125%;
 }

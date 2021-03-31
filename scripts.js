@@ -34,3 +34,35 @@ $(function(){
   });
 
 })
+
+//Adding the mouse enter and mouse leave handlers
+$(function(){
+
+  let blueBox = $(".blue-box");
+//all Lowercase for mouse enter. 
+  blueBox.mouseenter(function(){
+    $(this).stop().fadeTo(100, 0.7);
+  });
+//again, all lowercase! This allows the blue box to fade back to original opacity when the mouse leaves.
+
+//If you out your mouse over the blue box too fast, it will have the animation continue. We do not want this so using the stop() method, we can telll it to stop the previous animation before starting the new one!
+  blueBox.mouseleave(function(){
+    $(this).stop().fadeTo(500, 1);
+  })
+
+
+  // You can also write this as shorthand like so:
+
+    let pinkBox = $(".pink-box");
+
+    pinkBox.hover(
+      function(){
+        $(this).stop().fadeTo(500, .5);
+      }, 
+      
+      function(){
+      $(this).stop().fadeTo(500, 1);
+      }
+    );
+
+})
