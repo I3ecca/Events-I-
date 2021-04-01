@@ -33,7 +33,7 @@ $(function(){
     $(this).text("I was hovered!");
   });
 
-})
+});
 
 //Adding the mouse enter and mouse leave handlers
 $(function(){
@@ -65,7 +65,7 @@ $(function(){
       }
     );
 
-})
+});
 
 // Adding The same Handler for Multiple Events
 $(function(){
@@ -79,28 +79,60 @@ $(function(){
 
   // Mini Challenege, chang the image in the image gallery once it is clicked using the on() method. 
 
-//Set the images to an array. 
-let images = [
-  "img/laptop-mobile_small.jpg",
-  "img/laptop-on-table_small.jpg",
-  "img/people-office-group-team_small.jpg"
-];
 
-//set index to zero
-let i = 0;
 
-//select gallery, use the find() method to find the img. Then add the on() method to specify what is going to happen on a click. 
-  $(".gallery").find("img").on("click", function(){
-//When the gallery is clicked, the index is changed to a new number from 0, 1 and 2. 
+  let imgSwitch = function() {
+    //Set the images equal to an array of all the image sources. 
+    let images = [
+        "img/laptop-mobile_small.jpg",
+        "img/laptop-on-table_small.jpg",
+        "img/people-office-group-team_small.jpg"
+    ];
+    // set i equal to the starting point of 0. 
+    let i = 0;
+    //To cycyle through the images, we use modulo. This way we always get y equal to 1, 2 and 0. 
     i = (i + 1) % images.length;
-//Take the current image and fadeOut(), then using the attr() method, change the src to once of the images and fade it back in. 
+    console.log(i);
+    //Fadeout the current gallery picture and change the src of the image to the index of the next src and fade it back in. 
     $(this).fadeOut(function() {
-      $(this).attr("src", images[i]).fadeIn();
+        $(this).attr("src", images[i]).fadeIn();
     })
+};
+  // the code that calls the img switch on the element selected when clicked. 
+  $(".gallery").find("img").on("click", imgSwitch);
 
-  })
+});
+
+// Modularlizing Event Hnadlers (No more Inline functions)
+$(function(){
+
+  // You can pass in longer more complicated functions as variables so it makes code easier to read. 
+
+  // You can do this by naming a function OR setting a variable to an annon function.
+  
+  // The functions can either be inside this function or outside of it and it will still work. Make sure it is within scope. 
+
+  let logClick = function(){
+    console.log("Im a varable set to an annon function!");
+    console.log("A mouse was clicked or a key was pressed");; 
+  }
+
+  function logEvent() {
+    console.log("I am a named function!"); 
+    console.log("A mouse was clicked or a key was pressed");
+    }
+
+  $(".orange-box").on("click keydown", logClick);
+  $(".orange-box").on("click keydown", logEvent);
 
 
+  //Take a look at previous code for the image swicth to see how long functions can be condensed this way!
 
 
-})
+});
+
+//Delegated Events
+$(function(){
+
+});
+

@@ -47,6 +47,16 @@
   color: #ffffff;
   background-color: #e65fda; }
 
+.orange-box {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #e95c24;
+  cursor: pointer;}
+
 .large {
   font-size: 125%;
 }
