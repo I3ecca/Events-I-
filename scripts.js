@@ -133,6 +133,27 @@ $(function(){
 
 //Delegated Events
 $(function(){
+  //If we wanted all the p elements to slide up when clicked, we can do so like this:
+
+  // $("p").click(function(){
+  //   $(this).slideUp();
+  // })
+
+  //But issues arrise when we have a dynamically added p. 
+  //This p will not have the click event added to it when it is added. 
+
+  // $("#content").append("<p> This is a dynamically added paragraph</p>");
+
+  //To remedy this issue we do this: Define the event handler on a parent element that is always on the page, then that parent element will delegate that event to be handled by its decendents/children.
+
+  //With this newly written code, the desired result is achieved! We go to the parent element with the #content and we use the on() method to listen for the click and select child p elements. Now the "this" in the function will refer to the p's of content. 
+
+  $("#content").on("click", "p", function(){
+    $(this).slideUp();
+  })
+
+  $("#content").append("<p> This is a dynamically added paragraph</p>");
+
 
 });
 
