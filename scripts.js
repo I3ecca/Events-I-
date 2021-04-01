@@ -51,6 +51,7 @@ $(function(){
   })
 
   //Mini Challenge, rewrite the code for the blue box using the hover function. (I went and just a made a new pink box to apply this to)
+  //This is pretty much shorthand for the mouse enter and mouse leave functions. 
 
     let pinkBox = $(".pink-box");
 
@@ -63,5 +64,43 @@ $(function(){
       $(this).stop().fadeTo(100, 1);
       }
     );
+
+})
+
+// Adding The same Handler for Multiple Events
+$(function(){
+  // Using the on() method, you can add the same handler to multiple events.\
+  
+  // .on("click", function() {...})
+
+  $("html").on("click keydown", function(){
+    console.log("mouse was clicked or key was pressed");
+  });
+
+  // Mini Challenege, chang the image in the image gallery once it is clicked using the on() method. 
+
+//Set the images to an array. 
+let images = [
+  "img/laptop-mobile_small.jpg",
+  "img/laptop-on-table_small.jpg",
+  "img/people-office-group-team_small.jpg"
+];
+
+//set index to zero
+let i = 0;
+
+//select gallery, use the find() method to find the img. Then add the on() method to specify what is going to happen on a click. 
+  $(".gallery").find("img").on("click", function(){
+//When the gallery is clicked, the index is changed to a new number from 0, 1 and 2. 
+    i = (i + 1) % images.length;
+//Take the current image and fadeOut(), then using the attr() method, change the src to once of the images and fade it back in. 
+    $(this).fadeOut(function() {
+      $(this).attr("src", images[i]).fadeIn();
+    })
+
+  })
+
+
+
 
 })
