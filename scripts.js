@@ -155,5 +155,15 @@ $(function(){
   $("#content").append("<p> This is a dynamically added paragraph</p>");
 
 
+  // Mini Challenge! Add an event handler for mouse enter on the body tag with is then going to delegate to the li tags. Then change the li content font color. 
+
+
+  $("body").on("mouseenter", "li", function(){
+    $(this).stop().css("color", "blue");
+  })
+  $("body").on("mouseleave", "li", function(){
+    $(this).stop().css("color", "black");
+  })
+
 });
 
