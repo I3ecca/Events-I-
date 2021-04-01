@@ -167,3 +167,71 @@ $(function(){
 
 });
 
+//Passing Additional Data to Events
+$(function(){
+
+  // By passing a data object in as a parameter, we are adding data to the event!
+  $("#btn-data").click({
+    user: "Becca", 
+    domain: "www.JQueryCourse.com"
+  }, function(event){
+    //Now we can use that event data for other things. 
+    console.log(event.data);
+    // The event.data will be passed into the greetuser function as the userdata. 
+    greetUser(event.data)
+  })
+  // Now when we call greetUser, we can access the data in the event and use it to create a fun alert. 
+  let greetUser = function(userdata){
+    username = userdata.user;
+    domain = userdata.domain;
+    alert("Welcome Back, " + username + "!" + "\nWelcome to " + domain);
+  }
+
+});
+
+
+//Coding Activity: Creating an Image Gallery with Lightbox Preview!
+$(function(){
+
+  // Please open this activity in the Events I JQuery Coding Activity Folder
+  // Was much cleaner to do the activty in its own file. 
+  
+  // https://github.com/I3ecca/Events-I-Jquery-Coding-Activity-
+})
+
+//Handling KeyDown & KeyUp events. 
+$(function(){
+  // keypress() EVIL!! Unpredictable and not documented DO NOT USE.
+
+  //Best to stick to keydown() event. 
+  // You need the key codes to preform the appropriate action for the key pressed. 
+
+
+  $("html").keydown(function(event){
+    // .which will tell you which key was pressed!
+    // This is good because there are cross browser inconsistensies for keycodes, but JQuery is great because it can use which to find out the right keycode to use. 
+    console.log(event.which);
+  })
+
+  // Coding Challenge! Find out the keycode for the right arrow key, and then make the blue box move 10px to the right every time you press the right arrow key!. 
+
+// Found out that right arrow key is 39, so we set the number to a variable we can find later. 
+
+let arrowRight = 39;
+let arrowLeft = 37;
+
+$("html").keydown(function(event){
+
+  // Make if statements that compare the number to that of which key is being pressed and what to do for each. 
+
+  if (event.which == arrowRight){
+    $(".blue-box").css("margin-left", "+=10px");
+  };
+  if (event.which == arrowLeft){
+    $(".blue-box").css("margin-left", "-=10px");
+  };
+})
+
+
+
+});
